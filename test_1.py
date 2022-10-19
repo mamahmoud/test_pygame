@@ -18,3 +18,7 @@ if __name__ == "__main__":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit(0)
+        # change color
+        screen1.fill((255, 0, 0))
+        # update animation
+        pygame.display.update()
