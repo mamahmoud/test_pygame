@@ -6,6 +6,7 @@ HEIGHT = 600
 
 
 def draw_player(screen, img, x_axis, y_axis):
+    print(x_axis, y_axis)
     screen.blit(img, (x_axis, y_axis))
 
 
@@ -35,20 +36,24 @@ if __name__ == "__main__":
             if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
                 print(event.key)
                 # up
-                if event.key == 1073741906:
-                    player_y -= 10
+                if event.key == pygame.K_UP:
+                    if player_y >= 30:
+                        player_y -= 10
                     break
                 # down
-                elif event.key == 1073741905:
-                    player_y += 10
+                elif event.key == pygame.K_DOWN:
+                    if player_y <= 520:
+                        player_y += 10
                     break
                 # right
-                elif event.key == 1073741903:
-                    player_x += 10
+                elif event.key == pygame.K_RIGHT:
+                    if player_x <= 720:
+                        player_x += 10
                     break
                 # left
-                elif event.key == 1073741904:
-                    player_x -= 10
+                elif event.key == pygame.K_LEFT:
+                    if player_x >= 20:
+                        player_x -= 10
                     break
 
         # draw player
