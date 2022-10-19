@@ -10,7 +10,8 @@ if __name__ == "__main__":
     # title
     pygame.display.set_caption("Hello pygame by mohamed")
     # adding image icon
-    # pygame.image()
+    icon = pygame.image.load("startup.png")
+    pygame.display.set_icon(icon)
 
     # game loop
     while True:
