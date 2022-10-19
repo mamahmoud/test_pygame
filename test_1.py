@@ -14,6 +14,8 @@ if __name__ == "__main__":
     pygame.init()
     # create window
     screen1 = pygame.display.set_mode((WIDTH, HEIGHT))
+    # setting clock
+    clock = pygame.time.Clock()
     # title
     pygame.display.set_caption("Hello pygame by mohamed")
     # adding image icon
@@ -22,12 +24,13 @@ if __name__ == "__main__":
 
     # game loop
     while True:
+        # change color
+        screen1.fill((255, 0, 0))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit(0)
-        # change color
-        screen1.fill((255, 0, 0))
         # draw player
         draw_player(screen1, img, 370, 500)
         # update animation
         pygame.display.update()
+        clock.tick(240)
