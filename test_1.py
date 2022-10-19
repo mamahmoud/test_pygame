@@ -6,7 +6,7 @@ HEIGHT = 600
 
 
 def draw_player(screen, img, x_axis, y_axis):
-    print(x_axis, y_axis)
+    # print(x_axis, y_axis)
     screen.blit(img, (x_axis, y_axis))
 
 
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     pygame.display.set_caption("Hello pygame by mohamed")
     # adding image icon
     icon = pygame.image.load("startup.png")
-    img = pygame.image.load("startup_2.png")
+    player_image = pygame.image.load("space-invaders.png")
     player_x = 370
     player_y = 500
 
@@ -34,7 +34,6 @@ if __name__ == "__main__":
             if event.type == pygame.QUIT:
                 sys.exit(0)
             if event.type == pygame.KEYDOWN:
-                print(event.key)
                 # up
                 if event.key == pygame.K_UP:
                     if player_y >= 30:
@@ -55,9 +54,17 @@ if __name__ == "__main__":
                     if player_x >= 20:
                         player_x -= 10
                     break
+            if event.type == pygame.KEYUP:
+                if event.key in [
+                    pygame.K_UP,
+                    pygame.K_DOWN,
+                    pygame.K_RIGHT,
+                    pygame.K_LEFT,
+                ]:
+                    pass
 
         # draw player
-        draw_player(screen1, img, player_x, player_y)
+        draw_player(screen1, player_image, player_x, player_y)
         # update animation
         pygame.display.update()
         clock.tick(240)
