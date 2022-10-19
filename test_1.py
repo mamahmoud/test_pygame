@@ -34,15 +34,19 @@ if __name__ == "__main__":
                 sys.exit(0)
             if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
                 print(event.key)
+                # up
                 if event.key == 1073741906:
                     player_y -= 10
                     break
+                # down
                 elif event.key == 1073741905:
                     player_y += 10
                     break
+                # right
                 elif event.key == 1073741903:
                     player_x += 10
                     break
+                # left
                 elif event.key == 1073741904:
                     player_x -= 10
                     break
