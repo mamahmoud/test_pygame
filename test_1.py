@@ -29,6 +29,7 @@ if __name__ == "__main__":
     icon = pygame.image.load("startup.png")
     player_image = pygame.image.load("space-invaders.png")
     enemy_image = pygame.image.load("alien.png")
+    background_image = pygame.image.load("background.jpg")
     player_x = 370
     player_y = 500
     enemy_x = 380
@@ -40,8 +41,8 @@ if __name__ == "__main__":
     distance = random.choice(postive_distances + negative_distances)
     # game loop
     while True:
-        # change color
-        screen1.fill((255, 0, 0))
+        # background
+        screen1.blit(background_image, (0, 0))
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit(0)
