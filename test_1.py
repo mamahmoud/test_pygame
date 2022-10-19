@@ -28,6 +28,6 @@ if __name__ == "__main__":
         # change color
         screen1.fill((255, 0, 0))
         # draw player
-        draw_player(screen1, img, 400, 300)
+        draw_player(screen1, img, 370, 500)
         # update animation
         pygame.display.update()
