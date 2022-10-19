@@ -33,7 +33,7 @@ if __name__ == "__main__":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit(0)
-            if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
+            if event.type == pygame.KEYDOWN:
                 print(event.key)
                 # up
                 if event.key == pygame.K_UP:
@@ -58,8 +58,6 @@ if __name__ == "__main__":
 
         # draw player
         draw_player(screen1, img, player_x, player_y)
-        # draw_player(screen1, img, i, i)
-        i += 1
         # update animation
         pygame.display.update()
         clock.tick(240)
