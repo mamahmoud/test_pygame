@@ -57,6 +57,7 @@ if __name__ == "__main__":
     enemy_x = 380
     enemy_y = 20
     bullet_on = False
+    enemy_alive = True
     postive_distances = list(range(40, 101, ENEMY_SPEED * 5))
     negative_distances = list(range(-90, -29, ENEMY_SPEED * 5))
     distance = random.choice(postive_distances + negative_distances)
@@ -103,26 +104,32 @@ if __name__ == "__main__":
                 bullet_on = False
 
         # draw enemy
-        if distance == 0:
-            distance = random.choice(negative_distances + postive_distances)
-        if enemy_x >= 725:
-            distance = random.choice(negative_distances)
-            distance += ENEMY_SPEED
-            enemy_x -= ENEMY_SPEED
-            draw_enemy(screen1, enemy_image, enemy_x, enemy_y)
-        elif enemy_x <= 15:
-            distance = random.choice(postive_distances)
-            distance -= ENEMY_SPEED
-            enemy_x += ENEMY_SPEED
-            draw_enemy(screen1, enemy_image, enemy_x, enemy_y)
-        elif distance > 0 and enemy_x < 725:
-            distance -= ENEMY_SPEED
-            enemy_x += ENEMY_SPEED
-            draw_enemy(screen1, enemy_image, enemy_x, enemy_y)
-        elif distance < 0 and enemy_x > 15:
-            distance += ENEMY_SPEED
-            enemy_x -= ENEMY_SPEED
-            draw_enemy(screen1, enemy_image, enemy_x, enemy_y)
+        if enemy_alive and bullet_on:
+            if (abs(bullet_x - enemy_x) < 20) and (abs(bullet_y - enemy_y) < 20):
+                enemy_alive = False
+                bullet_on = False
+        if enemy_alive:
+
+            if distance == 0:
+                distance = random.choice(negative_distances + postive_distances)
+            if enemy_x >= 725:
+                distance = random.choice(negative_distances)
+                distance += ENEMY_SPEED
+                enemy_x -= ENEMY_SPEED
+                draw_enemy(screen1, enemy_image, enemy_x, enemy_y)
+            elif enemy_x <= 15:
+                distance = random.choice(postive_distances)
+                distance -= ENEMY_SPEED
+                enemy_x += ENEMY_SPEED
+                draw_enemy(screen1, enemy_image, enemy_x, enemy_y)
+            elif distance > 0 and enemy_x < 725:
+                distance -= ENEMY_SPEED
+                enemy_x += ENEMY_SPEED
+                draw_enemy(screen1, enemy_image, enemy_x, enemy_y)
+            elif distance < 0 and enemy_x > 15:
+                distance += ENEMY_SPEED
+                enemy_x -= ENEMY_SPEED
+                draw_enemy(screen1, enemy_image, enemy_x, enemy_y)
 
         # draw_enemy(screen1, enemy_image, enemy_x, enemy_y)
         # update animation
