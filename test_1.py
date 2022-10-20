@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
         # draw enemy
         if enemy_alive and bullet_on:
-            if (abs(bullet_x - enemy_x) < 20) and (abs(bullet_y - enemy_y) < 20):
+            if (abs(bullet_x - enemy_x) < 25) and (abs(bullet_y - enemy_y) < 25):
                 enemy_alive = False
                 bullet_on = False
         if enemy_alive:
